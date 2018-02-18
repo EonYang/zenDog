@@ -1,0 +1,17 @@
+<%- include('header') -%>
+  <div id='ranksDiv'><br><br>
+    <ul id='ranks'>
+      </ul>
+  </div>
+  <script>
+  var top10 = <%- JSON.stringify(top10) %>;
+  for (var obj in top10){
+    console.log(top10[obj]);
+    let rank = document.createElement('li');
+    rank.innerHTML = top10[obj].name + ':' + top10[obj].duration;
+    document.getElementById('ranks').appendChild(rank);
+  }
+</script>
+<script src="sketchOut.js"></script>
+
+<%- include('footer') -%>

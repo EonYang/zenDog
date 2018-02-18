@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.dom.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.sound.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <script src="sketchIn.js"></script>
+  <div id="title">
+  </div>
+  <div>
+    <h3 id="instruction">
+      Please submit your name to join:
+    </h3>
+  </div>
+  <div id="divInputArea">
+    <form>
+      <input id="nameInputArea" type="text" name="YourName">
+      <input type="button" value="Submit" onclick="submitUserName()">
+    </form>
+  </div>
+  <div>
+    <h1 id="stopWatch"></h1>
+  </div>
+</body>
+
+</html>
