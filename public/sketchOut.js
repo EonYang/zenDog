@@ -33,7 +33,7 @@ function setup() {
   // instanciate all existing dogs
   socket.on('initialData', function(dogs) {
     console.log('data just initialized');
-    console.log(dogs);
+    // console.log(dogs);
     for (var prop in dogs) {
       let tempDog = new Dog(dogs[prop].name, dogs[prop].timeStart, random(80, width - 160));
       localDogs[prop] = tempDog;
@@ -65,17 +65,6 @@ function draw() {
   push();
   translate(width / 2, height / 2);
   image(bgImg, 0, 0, height * 1.77, height);
-  pop();
-
-  push();
-  translate(0,0);
-  noStroke();
-  fill(0,0,0,0.5);
-  rect(0,0,660, 60);
-  fill(255);
-  textSize(17);
-  textAlign(LEFT);
-  text('Visit this page on your phone to join', 20, 20);
   pop();
   // console.log(localDogs);
   for (var prop in localDogs) {
@@ -133,10 +122,6 @@ class Dog {
       this.float += this.speed;
     }
 
-    // if (frameCount % 30 == 0) {
-    //   console.log(this.y);
-    // }
-
     // draw it
     push();
     translate(this.x, this.y);
@@ -149,7 +134,8 @@ class Dog {
     textAlign(CENTER);
     fill(255);
     text(this.name, 0, this.float -12);
-    text(floor(this.duration / 1000), 0, this.float + 12);
+    let dura = durationStringify(this.duration);
+    text(dura, 0, this.float + 12);
     pop();
   }
 }
@@ -209,3 +195,11 @@ ParticleSystem.prototype.run = function() {
     }
   }
 };
+
+var durationStringify = (millis) => {
+  let hours = Math.floor(millis / 3600000);
+  let minutes = Math.floor(millis / 60000) - hours * 60;
+  let seconds = ((millis % 60000) / 1000).toFixed(0);
+  let hourText = hours > 0 ? `${hours}:` : '';
+  return hourText + minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+}

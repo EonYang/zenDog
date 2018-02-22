@@ -1,12 +1,21 @@
 body {
-  margin : 0px;
-<<<<<<< HEAD
+  margin: 0px;
 }
 
-#ranksDiv {
+#texts{
   position: absolute;
   color: #fff;
+  line-height: 24px;
+  right: 0px;
+  top:0px;
 }
-=======
+#toJoin{
+  background-color: #00000094;
+  padding: 12px;
+
 }
->>>>>>> 33373a6f7fa07fbc66beea29f7fc0f2b6a802acc
+#ranksDiv {
+  padding: 12px;
+  float: right;
+  background-color: #00000094;
+}
