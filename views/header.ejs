@@ -7,7 +7,14 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.dom.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.sound.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
+  <script src="redirect_mobile_lib.js"></script>
+  <script>
+    let mobileUrl = window.location.href.replace('https://', '') + 'input';
+    console.log(mobileUrl);
+		SA.redirection_mobile({
+		mobile_url : mobileUrl,
+	});
+  </script>
   <link rel="stylesheet" type="text/css" href="style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>

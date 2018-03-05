@@ -145,4 +145,4 @@ var StoreNewTopDog = (obj) => {
   })
 }
 
-var storeDogsEvery10Seconds = setInterval(StoreDogsToDB, 10000);
+var storeDogsEvery10Seconds = setInterval(StoreDogsToDB, 5000);
