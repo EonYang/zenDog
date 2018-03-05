@@ -14,12 +14,12 @@ var durationStringify = (millis) => {
   let minutes = Math.floor(millis / 60000) - hours * 60;
   let seconds = ((millis % 60000) / 1000).toFixed(0);
   let hourText = hours > 0
-    ? `${hours}:`
+    ? `${hours}h `
     : '';
-  return hourText + minutes + ":" + (
+  return hourText + minutes + "'" + (
     seconds < 10
     ? '0'
-    : '') + seconds;
+    : '') + seconds + '"';
 }
 
 var getRank = () => {
@@ -27,6 +27,7 @@ $.ajax({
       url: "./api/top10",
       dataType: 'json',
       success: (data) => {
+        console.log(data);
         let sortedKeys = SortDogs(data);
         console.log(sortedKeys);
         $('#ranks').empty();

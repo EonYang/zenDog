@@ -9,6 +9,10 @@ socket.on('connect', function() {
   console.log("Connected");
 });
 
+socket.on('connect', function() {
+  console.log("Connected");
+});
+
 // update something every second;
 setInterval('drawWithoutP5()', 1000);
 
