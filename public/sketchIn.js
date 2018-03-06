@@ -13,6 +13,10 @@ socket.on('connect', function() {
   console.log("Connected");
 });
 
+socket.on('disconnect', () => {
+  alert("Disconnected, please refresh your browser");
+});
+
 // update something every second;
 setInterval('drawWithoutP5()', 1000);
 

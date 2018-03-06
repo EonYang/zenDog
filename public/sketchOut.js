@@ -40,6 +40,10 @@ function setup() {
     }
   });
 
+  socketIn.on('disconnect', () => {
+    alert("Disconnected, please refresh your browser");
+  });
+
   // instanciate new dog
   socketIn.on('newDog', function(newDog) {
     let tempDog = new Dog(newDog.name, newDog.timeStart, random(80, width - 160));
