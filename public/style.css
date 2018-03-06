@@ -2,10 +2,14 @@ body {
   margin: 0px;
 }
 
+#ranksDiv{
+  max-height: windowHeight/2;
+}
 #texts{
   position: absolute;
   color: #fff;
-  line-height: 24px;
+  font-size: 13px;
+  line-height: 18px;
   right: 0px;
   top:0px;
 }
@@ -18,4 +22,15 @@ body {
   padding: 12px;
   float: right;
   background-color: #00000094;
+}
+
+
+input {
+  margin: 0 auto;
+}
+
+input[type='text'],
+input[type='number'],
+textarea {
+  font-size: 16px;
 }

@@ -20,13 +20,13 @@ function drawWithoutP5() {
   showDuration();
 }
 
-function setup(){
-
-}
-
-function draw() {
-
-}
+// function setup(){
+//
+// }
+//
+// function draw() {
+//
+// }
 
 function deviceMoved() {
   console.log('deviceMoved event just got called');
@@ -61,7 +61,7 @@ function submitUserName() {
     inputForm.parentNode.removeChild(inputForm);
 
     // change instruction;
-    let instruction = myName + ", young apprentice.\n Today you will meditate. \n Don't touch your phone, \n you will be feeling it in seconds"
+    let instruction = myName + ", my young apprentice, now please meditate."
     document.getElementById('instruction').innerHTML = instruction;
   }
 

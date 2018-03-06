@@ -1,5 +1,5 @@
 // Open and connect output socket
-let socket = io('/');
+let socketIn = io('/');
 let localDogs = {};
 let initialY;
 
@@ -9,7 +9,7 @@ let Yspeed = 0.1;
 let particleColor;
 
 // Listen for confirmation of connection
-socket.on('connect', function() {
+socketIn.on('connect', function() {
   console.log("Connected");
 });
 
@@ -28,10 +28,10 @@ function setup() {
   rectMode(CENTER);
   createCanvas(windowWidth, windowHeight);
   background(255);
-  socket.emit('askingData', "come on")
+  socketIn.emit('askingData', "come on")
 
   // instanciate all existing dogs
-  socket.on('initialData', function(dogs) {
+  socketIn.on('initialData', function(dogs) {
     console.log('data just initialized');
     // console.log(dogs);
     for (var prop in dogs) {
@@ -41,20 +41,20 @@ function setup() {
   });
 
   // instanciate new dog
-  socket.on('newDog', function(newDog) {
+  socketIn.on('newDog', function(newDog) {
     let tempDog = new Dog(newDog.name, newDog.timeStart, random(80, width - 160));
     localDogs[newDog.id] = tempDog;
     console.log(localDogs);
     console.log("new dog added");
   })
 
-  socket.on('dogFail', function(failedDogId) {
+  socketIn.on('dogFail', function(failedDogId) {
     localDogs[failedDogId].startTime = new Date().getTime();
     console.log(localDogs[failedDogId].name + "just failed");
   })
 
   // delete dog who has left
-  socket.on('dogLeft', function(goneDogId) {
+  socketIn.on('dogLeft', function(goneDogId) {
     console.log(localDogs[goneDogId].name + "has left");
     delete localDogs[goneDogId];
   })

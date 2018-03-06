@@ -1,0 +1,16 @@
+<script src="redirect_mobile_lib.js"></script>
+<script>
+  let mobileUrl = window.location.href.replace('https://', '') + 'input';
+  console.log(mobileUrl);
+  SA.redirection_mobile({
+  mobile_url : mobileUrl,
+});
+</script>
+
+
+<div id="toJoin">
+  <h2>Visit this page on your phone to join</h2>
+</div>
+<script>
+$('#toJoin').appendTo('#inputOrGoToPhone');
+</script>

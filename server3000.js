@@ -22,6 +22,9 @@ app.use('/api', apiRouter);
 app.get('/', (req, res) => {
   res.render('index.ejs');
 });
+app.get('/mobile', (req, res) => {
+  res.render('index_mobile.ejs');
+});
 
 let io = require('socket.io').listen(server);
 

@@ -16,9 +16,10 @@
 
 * jQuery
 
-* 
 
 ##### Skills learned
+
+* use those libraries as mentioned above to create a single web app.
 
 * webpack
 
@@ -35,7 +36,3 @@
 * use forever to run scripts
 
 * https
-
-* 
-
-
