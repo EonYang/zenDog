@@ -129,7 +129,7 @@ class Dog {
       system.addParticle();
       system.run();
     }
-    image(dogImg, 0, this.float, width / 12, width / 12 * 1.42);
+    image(dogImg, 0, this.float, 80, 80 * 1.42);
     textSize(12);
     textAlign(CENTER);
     fill(255);
