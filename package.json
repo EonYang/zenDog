@@ -12,12 +12,13 @@
     "mongojs": "^2.5.0",
     "nodemon": "^1.15.1",
     "socket.io": "^2.0.4",
-    "webpack": "^3.11.0"
-    "babel-cli" : "^6.26.0",
+    "babel-cli": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
+    "webpack": "^3.11.0"
   },
   "devDependencies": {
     "rimraf": "^2.6.2",
+    "webpack": "^3.11.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
