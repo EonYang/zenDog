@@ -1,15 +1,32 @@
+
+
 import apiRouter from './api';
 
 // create variable to hold all users and users' status.
 // format : dogs[id] = {name: xxx, time: yyy}
 let dogs = {};
 
-const port = process.env.PORT || 3000;
+// const port = process.env.PORT || 1337;
 const express = require('express');
 const app = express();
-var server = require('http').createServer(app).listen(port, () => {
-  console.log('server is listening at port: ' + port);
-});
+// var server = require('http').createServer(app).listen(port, () => {
+//   console.log('server is listening at port: ' + port);
+// });
+
+const https = require('https');
+const fs = require('fs'); // Using the filesystem module
+
+const credentials = {
+  // key: fs.readFileSync('/Users/YANG/Library/Mobile Documents/com~apple~CloudDocs/keeeez/hellidea.com/privkey.pem'),
+  // cert: fs.readFileSync('/Users/YANG/Library/Mobile Documents/com~apple~CloudDocs/keeeez/hellidea.com/fullchain.pem')
+  key: fs.readFileSync('/etc/letsencrypt/live/hellidea.com/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/hellidea.com/fullchain.pem')
+};
+
+const httpsServer = https.createServer(credentials, app);
+
+// Default HTTPS Port
+httpsServer.listen(3000);
 
 var mongojs = require('mongojs');
 var config = require('./config.js');
@@ -26,7 +43,7 @@ app.get('/mobile', (req, res) => {
   res.render('index_mobile.ejs');
 });
 
-let io = require('socket.io').listen(server);
+let io = require('socket.io').listen(httpsServer);
 
 var outputs = io.of('/');
 
